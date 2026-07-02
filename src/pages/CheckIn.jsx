@@ -20,11 +20,11 @@ function CheckIn() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
-  // useEffect(() => {
-  //   const params = new URLSearchParams(window.location.search);
-  //   setChurchId(params.get("churchId") || "6a31bbdc4de6e5b089e7a046");
-  //   setServiceName(params.get("serviceName") || "Our Service");
-  // }, []);
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setChurchId(params.get("churchId") || "6a31bbdc4de6e5b089e7a046");
+    setServiceName(params.get("serviceName") || "Our Service");
+  }, []);
 
   // Simple validation for DD/MM format before sending to backend
   const validateBirthday = (dateStr) => {
@@ -34,6 +34,8 @@ function CheckIn() {
   };
 
   const handleSubmit = async (e) => {
+
+    
     e.preventDefault();
     setLoading(true);
     setError("");
@@ -140,7 +142,26 @@ function CheckIn() {
         </div>
       </div>
 
+
+
       <form onSubmit={handleSubmit} className="w-full max-w-2xl">
+
+        {/* Input Block: Email */}
+        <div className="w-full bg-white rounded-lg border border-[#dadce0] p-6 mb-3 shadow-sm">
+          <label className="block text-base font-medium text-[#202124] mb-4">
+            Email Address{" "}
+            <span className="text-[#d93025]">*</span>
+          </label>
+          <input
+            type="email"
+            placeholder="Your answer"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full max-w-md border-b border-[#70757a] py-2 text-sm text-gray-900 bg-transparent outline-none focus:border-[#673ab7] focus:border-b-2 transition-all duration-150"
+          />
+        </div>
+
+
         {/* Input Block: Full Name */}
         <div className="w-full bg-white rounded-lg border border-[#dadce0] p-6 mb-3 shadow-sm">
           <label className="block text-base font-medium text-[#202124] mb-4">
@@ -244,22 +265,6 @@ function CheckIn() {
           />
         </div>
 
-        {/* Input Block: Email */}
-        <div className="w-full bg-white rounded-lg border border-[#dadce0] p-6 mb-3 shadow-sm">
-          <label className="block text-base font-medium text-[#202124] mb-4">
-            Email Address{" "}
-            <span className="text-[#70757a] text-sm font-normal">
-              (Optional)
-            </span>
-          </label>
-          <input
-            type="email"
-            placeholder="Your answer"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full max-w-md border-b border-[#70757a] py-2 text-sm text-gray-900 bg-transparent outline-none focus:border-[#673ab7] focus:border-b-2 transition-all duration-150"
-          />
-        </div>
 
         {error && (
           <div className="w-full bg-[#fce8e6] border border-[#f28b82] rounded-lg p-4 mb-3 text-sm text-[#c5221f]">
