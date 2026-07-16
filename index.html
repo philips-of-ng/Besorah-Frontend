@@ -12,7 +12,8 @@
           return v.indexOf('p=') === 0
         })[0];
         if (decoded !== undefined) {
-          var path = decoded.split('=')[1];
+          // Fix: Use slice(2) instead of split('=')[1] to keep everything after 'p=' intact!
+          var path = decoded.slice(2);
           window.history.replaceState(null, null,
             l.pathname.slice(0, -1) + (path.slice(0, 1) === '/' ? '' : '/') + path + l.hash
           );
