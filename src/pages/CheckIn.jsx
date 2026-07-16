@@ -87,7 +87,7 @@ function CheckIn() {
     const visitorId = localStorage.getItem("besorah_visitor_id");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/attendance/fast-checkin", {
+      const res = await axios.post(`${baseAPIUrl}/api/attendance/fast-checkin`, {
         churchId,
         loc,
         visitorId
@@ -115,7 +115,7 @@ function CheckIn() {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/api/attendance/check-in", {
+      const res = await axios.post(`${baseAPIUrl}/api/attendance/check-in`, {
         churchId,
         loc,
         fullName,
