@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import CheckIn from './pages/CheckIn'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom' // Aliased here
+import { HashRouter as Router, Route, Routes } from 'react-router-dom' // Changed here!
 
 function App() {
   const [count, setCount] = useState(0)
