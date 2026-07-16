@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import './App.css'
 import CheckIn from './pages/CheckIn'
-import { HashRouter as Router, Route, Routes } from 'react-router-dom' // Changed here!
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom' // Back to BrowserRouter!
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <Router>
       <Routes>
-        <Route path='/checkin' element={<CheckIn />} /> {/* Changed to element */}
+        <Route path='/checkin' element={<CheckIn />} />
       </Routes>
     </Router>
   )
