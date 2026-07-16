@@ -3,7 +3,7 @@ import axios from "axios";
 
 function CheckIn() {
   //base url
-  const baseAPIUrl = 'https://besorah-backend.vercel.app/'
+  const baseAPIUrl = 'https://besorah-backend.vercel.app'
 
   // Form Fields State
   const [fullName, setFullName] = useState("");
