@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function CheckIn() {
+  //base url
+  const baseAPIUrl = 'https://besorah-backend.vercel.app/'
+
   // Form Fields State
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -49,7 +52,7 @@ function CheckIn() {
       setChurchId(urlChurchId);
 
       try {
-        const res = await axios.get(`http://localhost:5000/api/church/public-profile?churchId=${urlChurchId}`);
+        const res = await axios.get(`${baseAPIUrl}/api/church/public-profile?churchId=${urlChurchId}`);
         if (res.data && res.data.success) {
           setChurchName(res.data.churchName);
         }
